@@ -84,17 +84,17 @@ E - The time elapsed on that question in milliseconds.
 
 
 ---
-## **Application Design**:
+## **Application**:
 ---
 ![PredictorSays](https://user-images.githubusercontent.com/656837/146631316-01a3eccc-166f-420c-8e44-18dd7089fea2.png)
 (https://ie-predictor.herokuapp.com/)
 ---
-### **Machine Learning**:
+### **Machine Learning Model**:
 ---
 
-To predict the personality trait of a person, we have trained our model using the data from 91 Questions survey taken by more than 7000 users (Data source: Kaggle).
+Try our application, click on the link above. It was deployed to Heroku and predicts the trait of a person as being either an introvert, an extrovert, or an ambivert.  We have trained our model using the data from 91 Questions survey taken by more than 7000 participants (Data source: Kaggle).
 
-First and foremost, to validate the dataset, we applied Unsupervised ML Algorithm - K-Means clustering to our Preprocessed data. The elbow curve plotted out of this cleansed data showed us there would 3 Clusters in the dataset. Proves that we were looking for the classes 1:Introvert, 2:Extrovert and 3:Ambivert.
+First and foremost, to validate the dataset, we applied Unsupervised ML Algorithm - K-Means clustering to our Preprocessed data. The elbow curve plotted out of this cleansed data showed us there would 3 Clusters in the dataset. Proves that we were looking for three classes 1:Introvert, 2:Extrovert and 3:Ambivert.
 
 ![Elbow Plot ](images/Elbow-plot-k-Means-Cluster.png)
 
