@@ -7,27 +7,31 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-// Function to prepopulate questionnaire from a random participant
-function survey_prefill(myData) {
+// Function to prepopulate questionnaire from a random participant in DB
+function survey_prefill() {
   // Objects that will use d3 to get responses from Postgres DB
   const allResponses = d3.json("/questionnaireDB");
 
-  // Query the Postgres DB and put questionslist into myData
+  // Query the Postgres DB and put responses into responseData
   allResponses.then(function(responseData) {
-    // console.log(responseData);
     var recordNumber = getRandomInt(0, responseData.length);
     randomParticipant = responseData[recordNumber];
 
-    console.log(`Response size: ${responseData.length}, record: ${recordNumber}`);
-    console.log(responseData[recordNumber]);
-    console.log("Q1A", randomParticipant["Q1A"]);
-    console.log("Q8A", randomParticipant["Q8A"]);
+    console.log(`Record: ${recordNumber} identifes as ${randomParticipant['INTROVERT_EXTROVERT']}`);
 
-    // Pre-selection criteria to use
-    // if (j == 3) d3.select(`#${questionNum}A${j}`).attr("checked", "");
-    console.log(myData.length);
+    // Use only the questions columns from randomParticipant
+    const regex = new RegExp('Q.*A');
 
-  }); // End allresponses read
+    // Add all responses from the randomParticipant
+    for (let qNumber in randomParticipant) {
+      let numberResponse = randomParticipant[qNumber];
+      if (regex.test(qNumber)) {
+        // console.log(`d3.select(#${qNumber}${numberResponse}).attr("checked", "")`);
+        d3.select(`#${qNumber}${numberResponse}`).attr("checked", "");
+      };
+    }; // End randomParticipant loop
+
+  }); // End allResponses read
 
 }; // End function survey_prefill()
 
@@ -71,8 +75,8 @@ function init() {
                              .attr("for", `${questionNum}A${j}`)
                              .text(inputText);
 
-        // Pre-selection criteria to use
-        // if (j == 3) d3.select(`#${questionNum}A${j}`).attr("checked", "");
+        // Pre-select all questions to neutral
+        if (j == 3) d3.select(`#${questionNum}A${j}`).attr("checked", "");
       } // End for j loop
 
       d3.select(`${questionNum}`).append("br"); 
@@ -87,9 +91,8 @@ function init() {
                           .attr("id", "submit")
                           .text("Submit Questionnaire");
     
-    // Add a random participant's responses
-    // Test out the new function
-    survey_prefill(myData);
+    // Populate questionnaire with a random participant responses from DB
+    // survey_prefill();
 
   }); // end of d3.json()
 

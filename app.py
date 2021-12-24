@@ -74,7 +74,7 @@ def send():
         print(X_test)
 
         # define the possible path locations of the model file
-        localparent = '/Users/henrytirado/git/usc_homework/ML_Project'
+        localparent = '/Users/henrytirado/git/usc_homework/ML_Project.githotirado'
         herokuparent = '/app'
         ## FOR DEPLOYMENT: uncomment only the correct model file location
         # modelfile = localparent + '/saved_models/IE_Predictor_model.sav'
