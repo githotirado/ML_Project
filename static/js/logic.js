@@ -19,7 +19,7 @@ function survey_prefill() {
 
     console.log(`Record: ${recordNumber} identifes as ${randomParticipant['INTROVERT_EXTROVERT']}`);
 
-    // Use only the questions columns from randomParticipant
+    // Use only the questions columns, ignore other columns
     const regex = new RegExp('Q.*A');
 
     // Add all responses from the randomParticipant
@@ -44,7 +44,6 @@ function init() {
 
   // Query the Postgres DB and put questionslist into myData
   allQuestions.then(function(myData) {
-    // console.log(myData);
    
     for (let i = 0; i < myData.length; i++) {
       questionText = Object.values(myData[i])[0];
