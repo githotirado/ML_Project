@@ -1,9 +1,42 @@
+//  F U N C T I O N S
+
+// Random number generator between min and max
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+// Function to prepopulate questionnaire from a random participant
+function survey_prefill(myData) {
+  // Objects that will use d3 to get responses from Postgres DB
+  const allResponses = d3.json("/questionnaireDB");
+
+  // Query the Postgres DB and put questionslist into myData
+  allResponses.then(function(responseData) {
+    // console.log(responseData);
+    var recordNumber = getRandomInt(0, responseData.length);
+    randomParticipant = responseData[recordNumber];
+
+    console.log(`Response size: ${responseData.length}, record: ${recordNumber}`);
+    console.log(responseData[recordNumber]);
+    console.log("Q1A", randomParticipant["Q1A"]);
+    console.log("Q8A", randomParticipant["Q8A"]);
+
+    // Pre-selection criteria to use
+    // if (j == 3) d3.select(`#${questionNum}A${j}`).attr("checked", "");
+    console.log(myData.length);
+
+  }); // End allresponses read
+
+}; // End function survey_prefill()
+
+
 // main function to initialize the questionnaire
 function init() {
 
-  // Objects that will use d3 to get questionslist and responses from Postgres DB
+  // Objects that will use d3 to get questionslist from Postgres DB
   const allQuestions = d3.json("/questionslistDB");
-  // const allResponses = d3.json("/questionnaireDB");  // currently not needed
 
   // Query the Postgres DB and put questionslist into myData
   allQuestions.then(function(myData) {
@@ -39,7 +72,7 @@ function init() {
                              .text(inputText);
 
         // Pre-selection criteria to use
-        if (j == 3) d3.select(`#${questionNum}A${j}`).attr("checked", "");
+        // if (j == 3) d3.select(`#${questionNum}A${j}`).attr("checked", "");
       } // End for j loop
 
       d3.select(`${questionNum}`).append("br"); 
@@ -54,6 +87,10 @@ function init() {
                           .attr("id", "submit")
                           .text("Submit Questionnaire");
     
+    // Add a random participant's responses
+    // Test out the new function
+    survey_prefill(myData);
+
   }); // end of d3.json()
 
 }; // end of function init()
