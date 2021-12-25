@@ -1,0 +1,371 @@
+/* main body background color constant */
+body {
+    background: #e9e9e6;
+}
+
+/* Navigation Bar Styles */
+
+.navbar {
+    background-color: white;
+    height: 80px;
+    width: auto;
+}
+
+/* Left navigation title button */
+#navleft {
+    background-color: #D7BE48;
+    padding: 10px;
+    font: bold x-large Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+#navleft a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Navigation links specifications, justification */
+#navlinks {
+    text-align: right;
+}
+
+#navlinks a {
+    color: black;
+    text-decoration: none;
+}
+
+#navlinks li {
+    display: inline-block;
+    padding: 10px;
+}
+
+/* Dropdown button color and border override */
+.btn-secondary {
+    background: white;
+    color: black;
+    border: none;
+}
+
+/* Headers styling (Leave h6 alone for footer) */
+/* h1, */
+/* h2, */
+/* h3,
+h4, */
+/* h5 { */
+h2 {
+    margin: 0;
+    color: #D7BE48;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+/* h5 {
+    text-align: center;
+} */
+
+/* Float the image to left of other images or texts */
+#figure-left {
+    float: left;
+}
+
+/* Text padding and sizing in boxes */
+.main-left {
+    padding: 20px;
+}
+
+#main-left-vis {
+    font-size: small;
+}
+
+/* The box sections */
+.box-set {
+    position: relative;
+    min-height: 600px;
+}
+
+/* Box absolute positioning with respect to box-set */
+.box {
+    position: absolute;
+}
+
+/* Landing page Summary box and z-index layers */
+.box-sum-outer {
+    background: white;
+    top: 50px;
+    bottom: 25px;
+    left: 4%;
+    right: 39%;
+    z-index: 1;
+}
+
+.box-sum {
+    top: 60px;
+    bottom: 25px;
+    left: 6%;
+    right: 41%;
+    z-index: 2;
+}
+
+.box-sum-1 {
+    z-index: 3;
+}
+
+/* Landing page Visualization box and z-index layers */
+.box-vis-outer {
+    background: white;
+    top: 50px;
+    bottom: 25px;
+    left: 64%;
+    right: 4%;
+    z-index: 1;
+}
+
+.box-vis {
+    top: 60px;
+    bottom: 25px;
+    left: 66%;
+    right: 6%;
+    z-index: 2;
+}
+
+.box-vis-1 {
+    top: 25%;
+    left: 3%;
+    z-index: 3;
+}
+
+.box-vis-2 {
+    top: 25%;
+    right: 3%;
+    z-index: 3;
+}
+
+.box-vis-3 {
+    bottom: 3%;
+    left: 3%;
+    z-index: 3;
+}
+
+.box-vis-4 {
+    bottom: 3%;
+    right: 3%;
+    z-index: 3;
+}
+
+/* Highlight the active visualization box depending on page landed */
+.box-vis-active {
+    border: #2B62BA;
+    border-style: solid;
+}
+
+/* Data and Comparison page boxes */
+.box-single-outer {
+    background: white;
+    top: 50px;
+    bottom: 4%;
+    left: 4%;
+    right: 4%;
+    z-index: 1;
+}
+
+.box-single {
+    top: 60px;
+    bottom: 4%;
+    left: 6%;
+    right: 6%;
+    z-index: 2;
+    overflow: auto;
+}
+
+/* Comparison page boxes */
+.box-comp-1 {
+    top: 25%;
+    left: 3%;
+    z-index: 3;
+}
+
+.box-comp-2 {
+    top: 25%;
+    right: 3%;
+    z-index: 3;
+}
+
+.box-comp-3 {
+    bottom: 3%;
+    left: 3%;
+    z-index: 3;
+}
+
+.box-comp-4 {
+    bottom: 3%;
+    right: 3%;
+    z-index: 3;
+}
+
+/* Footer section and text */
+.box-footer {
+    position: fixed;
+    color: white;
+    background-color: darkgray;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    border-top: #DA665D;
+    border-top-width: 5px;
+    border-style: solid;
+}
+
+/* Data page table formatting */
+tr:nth-child(even) {
+    background-color: #f8f5f5;
+}
+
+tr {
+    border-bottom: lightgray;
+    border-style: solid;
+    border-bottom-width: 2px;
+}
+
+/* Questionnaire Styling */
+
+#qjumbo {
+    background-color: #D7BE48;
+}
+  
+#rjumbo[predictor-status="AMBIVERT"] {
+    background-color: #D7BE48;
+}
+
+#rjumbo[predictor-status="INTROVERT"] {
+    background-color: #2B62BA;
+}
+
+#rjumbo[predictor-status="EXTROVERT"] {
+    background-color: #DA665D;
+}
+
+#rjumbo[predictor-status="UNKNOWN"] {
+    background-color: fuchsia;
+}
+
+input {
+    margin: 8px;
+}
+
+.qseparator {
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    padding: 3px;
+    margin: 3px;
+}
+
+#questionnaire {
+    margin: 5px;
+}
+
+#submitbutton {
+    margin: 10px;
+    font-size: 40px;
+}
+
+#submit {
+    background-color: #2B62BA;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Media queries to restyle page below 1150px */
+@media (max-width: 1150px) {
+    /* .box-set {
+        height: 1000px;
+    } */
+
+    .box-sum-outer {
+        bottom: 47%;
+        left: 5%;
+        right: 5%;
+    }
+
+    .box-sum {
+        bottom: 47%;
+        left: 6%;
+        right: 6%;
+        z-index: 2;
+    }
+
+    .box-vis-outer {
+        top: 55%;
+        left: 5%;
+        right: 5%;
+        bottom: 15%;
+        z-index: 1;
+    }
+
+    .box-vis {
+        top: 56%;
+        left: 6%;
+        right: 6%;
+        z-index: 2;
+        bottom: 14%;
+    }
+
+    .box-vis-2 {
+        top: 25%;
+        left: 30%;
+        right: 53%;
+        z-index: 3;
+    }
+    
+    .box-vis-3 {
+        top: 25%;
+        left: 55%;
+        bottom: 20%;
+        z-index: 3;
+    }
+    
+    .box-vis-4 {
+        top: 25%;
+        right: 3%;
+        bottom: 20%;
+        z-index: 3;
+    }
+
+    .box-single-outer {
+        bottom: 10%;
+    }
+    
+    .box-single {
+        bottom: 10%;
+    }
+
+    .box-comp-1 {
+        top: 15%;
+        left: 3%;
+        z-index: 3;
+    }
+    
+    .box-comp-2 {
+        top: 40%;
+        left: 3%;
+        right: 65%;
+        z-index: 3;
+    }
+    
+    .box-comp-3 {
+        top: 65%;
+        left: 3%;
+        z-index: 3;
+    }
+    
+    .box-comp-4 {
+        top: 90%;
+        left: 3%;
+        right: 65%;
+        z-index: 3;
+    }
+}
