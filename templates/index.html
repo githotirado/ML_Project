@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- Our CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/indexstyles.css') }}">
-    <title>Introvert-Extrovert Predictor Application</title>
+    <title>Nomads Inc</title>
   </head>
   <body>
     <nav class="navbar">
@@ -18,7 +18,7 @@
                     <a href="/index">Nomads Inc</a>
                 </div>
                 <!-- Right side dropdown and links -->
-                <div id="navlinks" class="col-md-6">
+                <div id="navlinks" class="col-md-8">
                     <ul>
                         <!-- Dropdown plots menu in nav -->
                         <!-- <li class="dropdown">
@@ -37,13 +37,13 @@
                             <a href="/questionnaireHTML">Questionnaire</a>
                         </li>
                         <li>
-                            <a href="application.html">Application</a>
+                            <a href="/analyticsHTML">ML Analytics</a>
                         </li>
                         <li>
-                            <a href="viz.html">Visualizations</a>
+                            <a href="/visualizationsHTML">Visualizations</a>
                         </li>
                         <li>
-                            <a href="team.html">Team</a>
+                            <a href="/teamHTML">Team</a>
                         </li>
                     </ul>
                 </div>
@@ -57,25 +57,28 @@
             </section>
             <section class="box box-sum">
                 <header class="header">
-                    <h2>Summary: Introvert, Ambivert or Extrovert</h2>
+                    <h2>Introvert, Ambivert or Extrovert</h2>
                 </header>
                 <hr>
                 <!-- Left image -->
                 <section class="box-sum-1" id="figure-left">
-                    <img src="{{url_for('static',filename = 'images/temp.png')}}" width="200" height="200" alt="City Latitude vs Max Temperature">
+                    <img src="{{url_for('static',filename = 'images/depan.jpg')}}" width="400" height="200" alt="Personality Continuum Scale">
                 </section>
                 <!-- Left box text -->
                 <section class="main-left">
                     <p>
-                        The purpose of this project was to analyze how weather changes as you get closer to the equator.
-                        To accomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset 
-                        on over 500 cities.
+                        Our Project objective was to develop a Machine Learning application that would predict that a person is either an  
+                        Introvert, Extrovert or Ambivert based on 91 personality questions. Our ML model is trained by the responses of over 
+                        7,000 questionnaire participants who self-identified as one of these three types.
                     </p>
                     <p>
-                        After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude.  
-                        Factors we looked at included: temperature, cloudiness, wind speed, and humidity.  
-                        This site provides the source data and visualizations created as part of the analysis, as well 
-                        as explanations and descriptions of any trends and correlations witnessed.
+                        After storing the questions and responses into a database, we applied a number of training algorithms to find one that 
+                        would produce the best prediction accuracy.  We used the K-Means algorithm to plot an elbow curve and confirm the number 
+                        of clusters and the RandomForest classifier to train and test the model.
+                    </p>
+                    <p>
+                        The questionnaire on this site feeds that model (the predictor) with the user's responses, then the model's prediction 
+                        is displayed along with a summary of the type predicted.
                     </p>
                 </section>
             </section>

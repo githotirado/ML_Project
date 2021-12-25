@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/indexstyles.css') }}">
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Introvert-Extrovert ML Analytics</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <!-- Left side title / nav button -->
+        <div id="navleft" class="col-md-4">
+            <a href="/index">Nomads Inc</a>
+        </div>
+        <!-- Right side dropdown and links -->
+        <div id="navlinks" class="col-md-8">
+            <ul>
+                <!-- Dropdown plots menu in nav -->
+                <!-- <li class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Plots
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="temp.html">Max Temperature</a></li>
+                      <li><a class="dropdown-item" href="humidity.html">Humidity</a></li>
+                      <li><a class="dropdown-item" href="cloudy.html">Cloudiness</a></li>
+                      <li><a class="dropdown-item" href="wind.html">Wind Speed</a></li>
+                    </ul>
+                </li> -->
+                <!-- Regular links -->
+                <li>
+                    <a href="/questionnaireHTML">Questionnaire</a>
+                </li>
+                <li>
+                    <a href="/analyticsHTML">ML Analytics</a>
+                </li>
+                <li>
+                    <a href="/visualizationsHTML">Visualizations</a>
+                </li>
+                <li>
+                    <a href="/teamHTML">Team</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main body -->
+    <main class="mainbody">
+        <section class="box-set">
+            <!-- Data box -->
+            <section class="box box-single-outer">
+            </section>
+            <section class="box box-single">
+              <header class="header">
+                <h2>Machine Learning Analytics</h2>
+              </header>
+              <hr>
+              <!-- Left image -->
+              <section class="box-sum-1" id="figure-left">
+                <img src="{{url_for('static',filename = 'images/Elbow-plot-k-Means-Cluster_.png')}}" width="400" height="300" alt="Personality Continuum Scale">
+              </section>
+              <!-- Left box text -->
+              <section class="main-left">
+                <p>
+                  We have trained our model using the response data from the 91-Questions survey taken by more than 7,000 
+                  participants (Data source: Kaggle).
+                </p>
+                <p>
+                  First and foremost, to validate the dataset, we applied <b>ML Algorithm - K-Means 
+                  clustering</b> to our preprocessed data. The elbow curve [Figure 1, left] plotted out of this cleansed data showed us 
+                  the inertia as a function of number of clusters. Inertia drop slows down considerably starting at
+                  3 clusters.  It proved that we have three classes 1:Introvert, 2:Extrovert and 3:Ambivert.
+                </p>
+              </section>
+              <!-- Right image -->
+              <section class="box-sum-1" id="figure-right">
+                <img src="{{url_for('static',filename = 'images/ConfMatrix-Introvert-Extrovert-Ambivert_.png')}}" width="400" height="300" alt="Personality Continuum Scale">
+              </section>
+              <!-- Right box text -->
+              <section class="main-left">
+                <p>
+                  To train our Machine Learning model, we started with <b>Random Forest Classifier</b> to make the 
+                  predictions. Even after trying various hyperparameters, the accuracy of our predictions remained around 72%.
+                </p>
+                <p>
+                  The top left to lower right diagonal values of the <b>Confusion Matrix</b> [Figure 2, right] show True predictions, attributed as 
+                  True Introverts (Predicted- 1307 vs Actual- 1422), True Extroverts (Predicted- 193 vs Actual- 345) and True Ambiverts (Predicted- 211 vs Actual- 594). 
+                  Remaining numbers in the matrix show False predictions (False Introverts, False Extroverts, False Ambiverts).
+                <p>
+                  As part of Accuracy improvement efforts, we trained our Machine Learning model using some other algorithms.
+                </p>
+                <p>
+                  <i>Logistic Regression:</i> Had better accuracy both with Raw data and Standard scaled data.
+                </p>
+                <p>
+                  <i>Linear Regression:</i> Performed very bad and this algorithm would not be considered for training by any means.
+                </p>
+                <p>
+                  <i>Bagging & Boosting:</i> Using Bagging classifier, performed both Bagging (Hyper parameter: bootstrap=True) and Pasting 
+                  (Hyper parameter: bootstrap=False). Bagging has the similar accuracy as Logistic Regression and Random Forest. Even 
+                  with Bagging, accuracy was better with unscaled raw data. Tried AdaBoost, resulting in the similar accuracy score.
+                </p>
+                <p>
+                  <i>Voting Classifier:</i> By definition of Voting classifier, it provides a way to create a better classifier by aggregating 
+                  the predictions of each classifier and predict the class that gets the most votes. So I used Logistic Regression, 
+                  Random Forest, Support Vector Machine, Bagging and Boosting classifier. Accuracy reached only upto 73% even with all 
+                  the ML algorithms.
+                </p>
+                <p>
+                  Hence, we chose to use <b>Random Forest Classifier</b> for our application.
+                </p>
+                  The trained model was then saved to disk using Pickle.
+                </p>
+              </section>
+            </section>
+            <!-- <section class="box-set box-footer">
+                <h6>&copy Copyright Coding Bootcamp 2017</h6>
+            </section> -->
+        </section>
+    </main>
+    <!-- Footer -->
+    <section class="box-footer">
+        <h6>&copy Copyright Nomads, Inc. 2021</h6>
+    </section>
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- JavaScript files -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
+  </body>
+</html>
+

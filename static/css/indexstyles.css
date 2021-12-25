@@ -13,7 +13,7 @@ body {
 
 /* Left navigation title button */
 #navleft {
-    background-color: #D7BE48;
+    background-color: #2B62BA;
     padding: 10px;
     font: bold x-large Georgia, 'Times New Roman', Times, serif;
     text-align: center;
@@ -33,6 +33,7 @@ body {
 #navlinks a {
     color: black;
     text-decoration: none;
+    font-size: 24px;
 }
 
 #navlinks li {
@@ -55,7 +56,7 @@ h4, */
 /* h5 { */
 h2 {
     margin: 0;
-    color: #D7BE48;
+    color: #2B62BA;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
 }
@@ -67,6 +68,11 @@ h2 {
 /* Float the image to left of other images or texts */
 #figure-left {
     float: left;
+}
+
+/* Float the image to right of other images or texts */
+#figure-right {
+    float: right;
 }
 
 /* Text padding and sizing in boxes */
@@ -232,7 +238,7 @@ tr {
 /* Questionnaire Styling */
 
 #qjumbo {
-    background-color: #D7BE48;
+    background-color: #2B62BA;
 }
   
 #rjumbo[predictor-status="AMBIVERT"] {
