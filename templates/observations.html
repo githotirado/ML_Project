@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/indexstyles.css') }}">
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Introvert-Extrovert ML Observations</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <!-- Left side title / nav button -->
+        <div id="navleft" class="col-md-4">
+            <a href="/index">Nomads Inc</a>
+        </div>
+        <!-- Right side dropdown and links -->
+        <div id="navlinks" class="col-md-8">
+            <ul>
+                <!-- Dropdown plots menu in nav -->
+                <!-- <li class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Plots
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="temp.html">Max Temperature</a></li>
+                      <li><a class="dropdown-item" href="humidity.html">Humidity</a></li>
+                      <li><a class="dropdown-item" href="cloudy.html">Cloudiness</a></li>
+                      <li><a class="dropdown-item" href="wind.html">Wind Speed</a></li>
+                    </ul>
+                </li> -->
+                <!-- Regular links -->
+                <li>
+                    <a href="/questionnaireHTML">Questionnaire</a>
+                </li>
+                <li>
+                    <a href="/analyticsHTML">ML Analytics</a>
+                </li>
+                <li>
+                    <a href="/developmentHTML">Development</a>
+                </li>
+                <li>
+                    <a href="/observationsHTML">Observations</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main body -->
+    <main class="mainbody">
+        <section class="box-set">
+            <!-- Data box -->
+            <section class="box box-single-outer">
+            </section>
+            <section class="box box-single">
+              <header class="header">
+                <h2>Project Observations</h2>
+              </header>
+              <hr>
+              <p>
+                <h3>Participant Demographics</h3>
+                Participants in the research had to provide consent to let their responses be used in the data set.  
+                More introverts than the other two groups both participated in the study and gave their consent, despite 
+                the general consensus that extroverts outnumber introverts by 3 to 1.
+              </p>
+              <p>
+                The age group of participants was mostly GenZ followed by Millenials, and more females participated than males. 
+                We excluded demographic data from the training and testing of our model because the distribution of participants 
+                did not mirror the population demographics of the world.  For example, the researchers used a responder's IP address 
+                to determine the countries where the questionnaires were responded; this metric as well did not reflect 
+                the population distribution of those countries.  Observe the dashboard of responder demographics:
+              </p>
+              <section id="tableauViz">
+                <div class='tableauPlaceholder' id='viz1640496873901' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IEPredictionAnalysis&#47;ParticipantDemographics' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1640496873901');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+              </section>
+              <section id="tableauText">
+                <p>The overall distribution chart is based on how participants identified themselves.  Since we know that in general 
+                  extroverts outnumber introverts by 3 to 1, we might surmise that introverts are more inclined to participate in these 
+                  research projects than extroverts.  As a result, fewer samples were available from extroverts to improve accuracy for 
+                  identifying extroverts.
+                </p>
+                <p>
+                  The countries list displays the electronic location of the participants.  With the US, Great Britain, and Canada comprising 
+                  the top 3 participant countries, it would be safe to assume that we should not use country data to train our model since 
+                  this distribution does not adequately represent the true population distribution.
+                </p>
+                <p>
+                  Finally, the age and gender distributions show that mostly female and mostly GenZ people participated in the research.  For 
+                  all distributions, self-identified introverts were the largest participation groups.
+                </p>
+              </section>
+              <section class="col-md-10">
+                <p>
+                  <h3>Machine Learning</h3>
+                  The <b>Confusion Matrix</b> proved to be telling about the model's ability to predict the three personality 
+                  traits.  The model had the most success with predicting introverts, which was the largest group of participants.  
+                  There were fewer self-identified extroverts in the data set to help us train the model to predict them.  The largest 
+                  group to contain false predictions was the ambivert group.  This might be attributable to ambiverts 
+                  with introvert functions and ambiverts with extrovert functions.  The questionnaire only offered 3 choices for self 
+                  identification.  For example:
+                  <ul>
+                    <li>
+                      (Count=330) Where the participant identified as ambivert but was predicted to be introvert.  This 
+                      might be the group in our Personality Continuum Scale as those ambiverts with introvert functions.
+                    </li>
+                    <li>
+                      (Count=108) Where the participant identified as extrovert but was predicted to be ambivert.  This 
+                      might be the group in our Personality Continuum Scale as those ambiverts with extrovert funtions.
+                    </li>
+                  </ul>   
+                </p>
+              </section>
+              <p>
+                <h3>Question Responses</h3>
+                Some questions produced stronger responses than others for each trait. Introverts favor 1 on 1 interactions 
+                and spending time with their hobbies and prefer listening to people in conversations. Extroverts admitted 
+                they love to laugh a lot, stand up for themselves, love excitement, and have strong personalities. Ambiverts 
+                were neutral for most questions but were in strong agreement to loving excitement and laughing a lot.
+              </p>
+            </section>
+            <!-- <section class="box-set box-footer">
+                <h6>&copy Copyright Coding Bootcamp 2017</h6>
+            </section> -->
+        </section>
+    </main>
+    <!-- Footer -->
+    <section class="box-footer">
+        <h6>&copy Copyright Nomads, Inc. 2021</h6>
+    </section>
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- JavaScript files -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+
+  </body>
+</html>
+

@@ -288,6 +288,11 @@ input {
     border-radius: 10px;
 }
 
+#tableauViz {
+    width: 80%;
+    float: right;
+}
+
 /* Media queries to restyle page below 1150px */
 @media (max-width: 1150px) {
     /* .box-set {
