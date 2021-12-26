@@ -39,7 +39,27 @@ def index():
 
 @app.route("/")
 def detail(): 
+    return render_template("index.html")
+
+# HTML page questionnaire
+@app.route("/questionnaireHTML")
+def questionnaireHTML(): 
     return render_template("questionnaire.html")
+
+# HTML page ML analytics
+@app.route("/analyticsHTML")
+def analyticsHTML(): 
+    return render_template("analytics.html")
+
+# HTML page development
+@app.route("/developmentHTML")
+def deploymentHTML(): 
+    return render_template("development.html")
+
+# HTML page observations
+@app.route("/observationsHTML")
+def teamHTML(): 
+    return render_template("observations.html")
 
 # Querying the DB for questionslist questions
 @app.route("/questionslistDB")
@@ -55,10 +75,6 @@ def questionnaireDB():
     df_questionnaire_json = df_questionnaire.to_dict(orient="records")
     return jsonify(df_questionnaire_json)
 
-# HTML page displaying questionnaire for interactive user
-@app.route("/questionnaireHTML")
-def questionnaireHTML(): 
-    return render_template("questionnaire.html")
 
 # Handler for questionnaire submission
 @app.route("/send", methods=["GET", "POST"])
@@ -87,7 +103,7 @@ def send():
         r = np.array([3])
         y_test = pd.Series(r, copy=False)
         score = loaded_model.score(X_test, y_test)
-        print("Score test is (1 = introvert, 2 = extrovert, 3 = ambivert): ", score)
+        print("Score result is (1 = introvert, 2 = extrovert, 3 = ambivert): ", score)
 
         # Predict outcome based on user entered data
         predict_number = loaded_model.predict(X_test)[0]
