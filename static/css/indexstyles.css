@@ -7,7 +7,7 @@ body {
 
 .navbar {
     background-color: white;
-    height: 80px;
+    height: 100px;
     width: auto;
 }
 
@@ -68,6 +68,9 @@ h2 {
 /* Float the image to left of other images or texts */
 #figure-left {
     float: left;
+    padding-right: 50px;
+    padding-left: 50px;
+    /* margin: 10px; */
 }
 
 /* Float the image to right of other images or texts */

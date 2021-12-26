@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/indexstyles.css') }}">
+    <!-- D3 library -->
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <title>Introvert-Extrovert App Development</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <!-- Left side title / nav button -->
+        <div id="navleft" class="col-md-4">
+            <a href="/index">Nomads Inc</a>
+        </div>
+        <!-- Right side dropdown and links -->
+        <div id="navlinks" class="col-md-8">
+            <ul>
+                <!-- Dropdown plots menu in nav -->
+                <!-- <li class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Plots
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="temp.html">Max Temperature</a></li>
+                      <li><a class="dropdown-item" href="humidity.html">Humidity</a></li>
+                      <li><a class="dropdown-item" href="cloudy.html">Cloudiness</a></li>
+                      <li><a class="dropdown-item" href="wind.html">Wind Speed</a></li>
+                    </ul>
+                </li> -->
+                <!-- Regular links -->
+                <li>
+                    <a href="/questionnaireHTML">Questionnaire</a>
+                </li>
+                <li>
+                    <a href="/analyticsHTML">ML Analytics</a>
+                </li>
+                <li>
+                    <a href="/developmentHTML">Development</a>
+                </li>
+                <li>
+                    <a href="/observationsHTML">Observations</a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main body -->
+    <main class="mainbody">
+        <section class="box-set">
+            <!-- Data box -->
+            <section class="box box-single-outer">
+            </section>
+            <section class="box box-single">
+              <header class="header">
+                <h2>The Team</h2>
+              </header>
+              <hr>
+              <section class="main-left">
+                <!-- Images -->
+                <section class="box-sum-1" id="figure-left">
+                  <img src="{{url_for('static',filename = 'images/Henry.jpg')}}" width="200" height="200" alt="Henry Tirado">
+                  <h4>Henry Tirado</h4>
+                  <img src="{{url_for('static',filename = 'images/github.png')}}" width="50" height="50" alt="Henry Tirado - github">
+                  <img src="{{url_for('static',filename = 'images/linkedin.png')}}" width="50" height="50" alt="Henry Tirado - linkedin">
+                </section>
+                <section class="box-sum-1" id="figure-left">
+                  <img src="{{url_for('static',filename = 'images/Sushma.jpg')}}" width="200" height="200" alt="Sushma Kesamsetty">
+                  <h4>Sushma Kesamsetty</h4>
+                  <img src="{{url_for('static',filename = 'images/github.png')}}" width="50" height="50" alt="Sushma Kesamsetty - github">
+                  <img src="{{url_for('static',filename = 'images/linkedin.png')}}" width="50" height="50" alt="Sushma Kesamsetty - linkedin">
+                </section>
+                <section class="box-sum-1">
+                  <img src="{{url_for('static',filename = 'images/Scott.jpg')}}" width="200" height="200" alt="Scott Seely">
+                  <h4>Scott Seely</h4>
+                  <img src="{{url_for('static',filename = 'images/github.png')}}" width="50" height="50" alt="Scott Seely - github">
+                  <img src="{{url_for('static',filename = 'images/linkedin.png')}}" width="50" height="50" alt="Scott Seely - linkedin">
+                </section>
+              </section>
+              <p></p>
+              <header class="header">
+                <h2>Use Cases</h2>
+              </header>
+              <hr>
+              <section class="main-left">
+                <p>
+                  Personality data has many commercial uses:
+                  <ul>
+                    <li>Company hiring</li>
+                    <li>Dating sites</li>
+                    <li>Entertainment</li>
+                    <li>Career counselling</li>
+                  </ul>
+                </p>
+              </section>
+              <header class="header">
+                <h2>Application Development</h2>
+              </header>
+              <hr>
+              <section class="main-left">
+                <p>
+                  The Machine Learning app we developed is basically the 91-question questionnaire whose responses 
+                  are sent as validation input data to our <b>Random Forest Classifier</b> trained model; the model 
+                  predicts whether the questionnaire taker is an Introvert, an Ambivert or an Extrovert.
+                </p>
+                <p>
+                  <b>Tools and Services:</b> The following tools were utilized in the development of the 
+                  application:
+                  <ul>
+                    <li>
+                      <i>AWS RDS:</i> Deployed a PostgreSQL database for storage of the questions, responses and participant 
+                      demographics.
+                    </li>
+                    <li>
+                      <i>Python:</i> Underlying code for integrating all relevant libraries, models and data.
+                    </li>
+                    <li>
+                      <i>Pandas:</i> DataFrames for preprocessing the input data and for training/testing/scoring 
+                      our ML model.
+                    </li>
+                    <li>
+                      <i>Jupyter Notebook:</i> Coding Pandas DataFrames, debugging.
+                    </li>
+                    <li>
+                      <i>Scikit Learn:</i> Library with supervised and unsupervised learning algorithms to 
+                      train/test/score/predict our model.
+                    </li>
+                    <li>
+                      <i>Matplotlib:</i> Plotting our Machine Learning charts.
+                    </li>
+                    <li>
+                      <i>HTML/CSS:</i> Visualization and documentation pages for our web site.
+                    </li>
+                    <li>
+                      <i>JavaScript:</i> Dynamically create questionnaire HTML page from database tables.
+                    </li>
+                    <li>
+                      <i>SQLAlchemy:</i> Connection from JavaScript to PostgreSQL database.
+                    </li>
+                    <li>
+                      <i>D3:</i> Read questions and response data from database, add HTML to questionnaire.
+                    </li>
+                    <li>
+                      <i>Flask:</i> Manage all web pages, database queries, unpickle our model, feed user data
+                      into model for validation. 
+                    </li>
+                    <li>
+                      <i>Tableau:</i> Visualizations dashboard of participant demographics.
+                    </li>
+                    <li>
+                      <i>Heroku:</i> Deployment of application to standalone web site.
+                    </li>
+                  </ul>
+                </p>
+              </section>
+              <header class="header">
+                <h2>Data Source</h2>
+              </header>
+              <hr>
+              <section class="main-left">
+                <ul>
+                  <a href="https://www.kaggle.com/yamqwe/introversionextraversion-scales">Kaggle.com</a>
+                </ul>
+                <p>
+                  The questionnaire contains 91 questions and 3 demographic identifiers.  The questions were 
+                  presented one at a time in a random order.  For each question 3 values were recorded:
+                </p>
+                <p>
+                  A - The user's selected response. 1=Disagree, 2=Slightly disagree, 3=Neutral, 4=Slightly agree, 
+                  5=Agree I - The position of the question in the survey. E - The time elapsed on that question in milliseconds.
+                </p>
+                <!-- Dataset images -->
+                <section class="box-sum-1">
+                  <img src="{{url_for('static',filename = 'images/Questionnaire.png')}}" width="1200" height="200" alt="Personality Continuum Scale">
+                </section>
+                <section class="box-sum-1">
+                  <img src="{{url_for('static',filename = 'images/Questions_all.png')}}" width="1200" height="1200" alt="Personality Continuum Scale">
+                </section>
+              </section>
+              <header class="header">
+                <h2>Application Deployment</h2>
+              </header>
+              <hr>
+              <section class="main-left">
+                <p>
+                  The web app is written using Python, HTML, and JavaScript mainly.  It uses D3 to read in the list of questions 
+                  from our database and dynamically generate the HTML code for the questionnaire page.  Upon clicking the submit 
+                  button, Flask and Python unpickle the trained model and save the responses in a Pandas 1x91 DataFrame. The 
+                  DataFrame is run through the model to let the model predict the user's personality trait.  A results page 
+                  displays the model's prediction in a Jumbotron element.
+                </p>
+              </section>
+            </section>
+            <!-- <section class="box-set box-footer">
+                <h6>&copy Copyright Coding Bootcamp 2017</h6>
+            </section> -->
+        </section>
+    </main>
+    <!-- Footer -->
+    <section class="box-footer">
+        <h6>&copy Copyright Nomads, Inc. 2021</h6>
+    </section>
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- JavaScript files -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script> -->
+
+  </body>
+</html>
+

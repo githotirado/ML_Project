@@ -10,7 +10,7 @@
     <!-- Our CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/indexstyles.css') }}">
     <!-- D3 library -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
     <title>Introvert-Extrovert ML Analytics</title>
   </head>
   <body>
@@ -43,10 +43,10 @@
                     <a href="/analyticsHTML">ML Analytics</a>
                 </li>
                 <li>
-                    <a href="/visualizationsHTML">Visualizations</a>
+                    <a href="/developmentHTML">Development</a>
                 </li>
                 <li>
-                    <a href="/teamHTML">Team</a>
+                    <a href="/observationsHTML">Observations</a>
                 </li>
             </ul>
         </div>
@@ -59,6 +59,18 @@
             <section class="box box-single-outer">
             </section>
             <section class="box box-single">
+              <header class="header">
+                <h2>Configuration Requirements</h2>
+              </header>
+              <hr>
+              <section class="main-left">
+                <p>
+                  When training and testing the model in the Jupyter notebook, it expects DB configuration 
+                  to fetch the survey data.  Create a file <i>config.py</i> in the folder <i>code</i>.  Add 
+                  and fill Username, Password, Host, Database, Driver and Port in the file for use in the 
+                  database connection string.
+                </p>
+              </section>
               <header class="header">
                 <h2>Machine Learning Analytics</h2>
               </header>
@@ -133,7 +145,7 @@
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <!-- JavaScript files -->
-    <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/logic.js') }}"></script> -->
 
   </body>
 </html>
