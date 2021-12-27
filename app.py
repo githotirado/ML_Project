@@ -24,9 +24,9 @@ password = os.environ.get('DBPASSWORD')
 host = os.environ.get('DBHOST')
 port = os.environ.get('DBPORT')
 database = os.environ.get('DBDATABASE')
+
 connection_string = f'{username}:{password}@{host}:{port}/{database}'
 engine = create_engine(f'postgresql://{connection_string}')
-
 
 #################################################
 # Flask Routes
@@ -80,8 +80,6 @@ def questionnaireDB():
 @app.route("/send", methods=["GET", "POST"])
 def send():
     if request.method == "POST":
-        # print("Request.form: ", request.form)
-        # print("Size: ", len(request.form))
         # for i in request.form:
         #     print("i is ", i, "and value is ", request.form[i])
 
@@ -96,7 +94,7 @@ def send():
         # modelfile = localparent + '/saved_models/IE_Predictor_model.sav'
         modelfile = herokuparent + '/saved_models/IE_Predictor_model.sav'
 
-        # Unpickle the model file
+        # Unpickle the model file (use same scikit learn library as when model training)
         loaded_model = pickle.load(open(modelfile, 'rb'))
 
         ## This is a scoring exercise to validate that the model is responding

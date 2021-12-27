@@ -49,11 +49,6 @@ body {
 }
 
 /* Headers styling (Leave h6 alone for footer) */
-/* h1, */
-/* h2, */
-/* h3,
-h4, */
-/* h5 { */
 h2 {
     margin: 0;
     color: #2B62BA;
@@ -289,8 +284,12 @@ input {
 }
 
 #tableauViz {
-    width: 80%;
+    width: 70%;
     float: right;
+    border: #D7BE48;
+    border-style: solid;
+    border-width: 2px;
+    margin: 10px;
 }
 
 /* Media queries to restyle page below 1150px */
