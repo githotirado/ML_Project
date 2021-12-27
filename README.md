@@ -10,7 +10,7 @@
 
 Our Project objective was to develop the machine learning application that would predict the personality trait of a person as Introvert/Extrovert/Ambivert based on 91 personality questions. Our ML algorithm is trained based on survey with the same set of personality questions. 
 
-![Personality-Survey](html/img/depan.jpg)
+![Personality-Survey](static/images/depan.jpg)
 
 http://ie-predictor.tech/
 
@@ -76,17 +76,17 @@ A - The user's selected response. 1=Disagree, 2=Slightly disagree, 3=Neutral, 4=
 I - The position of the question in the survey.
 E - The time elapsed on that question in milliseconds.
 
-![Survey](images/Questionnaire.png)
+![Survey](static/images/Questionnaire.png)
 
 <br><br>
 
-![questions](images/Questions_all.png)
+![questions](static/images/Questions_all.png)
 
 
 ---
 ## **Application**:
 ---
-![PredictorSays](https://user-images.githubusercontent.com/656837/146631316-01a3eccc-166f-420c-8e44-18dd7089fea2.png)
+![PredictorSays](static/images/PredictorSays.png)
 (https://ie-predictor.herokuapp.com/)
 ---
 ### **Machine Learning Model**:
@@ -96,11 +96,11 @@ Try our application, click on the link above. It was deployed to Heroku and pred
 
 First and foremost, to validate the dataset, we applied Unsupervised ML Algorithm - K-Means clustering to our Preprocessed data. The elbow curve plotted out of this cleansed data showed us there would 3 Clusters in the dataset. Proves that we were looking for three classes 1:Introvert, 2:Extrovert and 3:Ambivert.
 
-![Elbow Plot ](images/Elbow-plot-k-Means-Cluster.png)
+![Elbow Plot ](static/images/Elbow-plot-k-Means-Cluster_.png)
 
 To train our Machine learning model, We started with Random Forest classifier to make the predictions. Even after trying various hyperparameters, accuracy of our predictions remained to be around 72%.
 
-![Conf Matrix](images/ConfMatrix-Introvert-Extrovert-Ambivert.png)
+![Conf Matrix](static/images/ConfMatrix-Introvert-Extrovert-Ambivert_.png)
 
 The diagonal values of the confusion matrix show True predictions, attributed as True Introverts (Predicted#1307 Vs Actual#1422), True Extroverts (Predicted#193 Vs Actual#345) and True Ambiverts (Predicted#211 Vs Actual#594). Remaining numbers in the matrix show False predictions (False Introverts, False Extroverts, False Ambiverts).
 
@@ -135,7 +135,7 @@ A results page displays the model's prediction in a Jumbotron element.
 
 Participant demographic dashboards were produced in Tableau Public.
 
-![tableau demographics](https://github.com/scottdseely/ML_Project/blob/main/images/Participant%20Demographics.png)
+![tableau demographics](static/images/Participant%20Demographics.png)
 
 ---
 ### **Observations**:
